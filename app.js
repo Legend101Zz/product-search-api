@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const FuzzySearch = require("fuzzy-search");
 
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.wsogi.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
+
 const port = process.env.PORT || 8000;
 
 const productModel = require("./product.model");
@@ -19,10 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 mongoose
-  .connect(
-    "mongodb+srv://Mrigesh_Thakur:bomkuc-xewgu3-jejnEr@cluster0.wsogi.mongodb.net/products?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(MONGODB_URI)
   .then(() => console.log("database connected successfully"))
   .catch((err) => console.log("it has an error", err));
 

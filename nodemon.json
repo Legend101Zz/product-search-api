@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "Mrigesh_Thakur",
+    "MONGO_PASSWORD": "bomkuc-xewgu3-jejnEr",
+    "MONGO_DEFAULT_DATABASE": "products"
+  }
+}
